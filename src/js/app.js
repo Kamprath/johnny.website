@@ -4,13 +4,21 @@ var $ = require('jquery'),
     // use low star count for browsers besides Chrome because of performance issues
     stars = (navigator.userAgent.indexOf("Chrome") >= 0) ? 666 : 266,
     colors = [
-        '#f5d76e',
-        '#f7ca18',
-        '#f4d03f',
-        '#ececec',
-        '#ecf0f1',
-        '#ffffff'
-    ],
+        [
+            '#f5d76e',
+            '#f7ca18',
+            '#f4d03f',
+            '#ececec',
+            '#ecf0f1',
+            '#ffffff'
+        ], 
+        [
+            '#f0f5eb',
+            '#a0eff4',
+            '#80e7ec'
+        ]
+    ];
+
     selectors = {
         stars: '#stars',
         star: '#stars span',
@@ -20,15 +28,32 @@ var $ = require('jquery'),
         buttonLink: 'button[data-href]'
     };
 
+function animateStars() { 
+    var colorSet = getRandomColorSet();
+
+    $(selectors.star).each(function(){     
+        $(this).css({
+            'color': colorSet[parseInt(Math.random() * colorSet.length)],
+            'top': Math.random()*100 + '%',
+            'left': Math.random()*100 + '%'
+        });
+    });
+}
+
+function getRandomColorSet() {
+    return colors[parseInt(Math.random() * colors.length)];
+}
+
 // navigate to value of [data-href] on button click
 $(selectors.buttonLink).on('click', function() {
     window.location.href = $(this).data('href');
 });
 
 // render stars
+var colorSet = getRandomColorSet();
 for (var i = 0; i <= stars; i++) {
     var size = Math.random() * 3,
-        color = colors[parseInt(Math.random() * 4)];
+        color = colorSet[parseInt(Math.random() * (colorSet.length - 1))];
 
     $(selectors.stars).prepend($('<span></span>').css({
         'width': size + 'px',
@@ -41,18 +66,10 @@ for (var i = 0; i <= stars; i++) {
 }
 
 // animate stars
-setTimeout(function() { 
-    $(selectors.star).each(function() {  
-        $(this).css('top', Math.random()*100 + '%').css('left', Math.random()*100 + '%'); 
-    });
-}, 1);
+window.setTimeout(animateStars, 1);
 
 // reset star position
-setInterval(function() { 
-    $(selectors.star).each(function(){     
-        $(this).css('top', Math.random()*100 + '%').css('left', Math.random()*100 + '%'); 
-    });
-}, 100000); 
+window.setInterval(animateStars, 80000); 
 
 // cycle through gradients
 if (window.location.href.indexOf('?static') < 0) {

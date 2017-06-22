@@ -71,14 +71,14 @@ body {
     width: auto;
     position: absolute;
     border-radius: 100%;
-    transition: 100s linear;
+    transition: 80s linear;
   }
 }
 
 #buttons {
-    position: absolute;
+    position: fixed;
     width: 390px;
-    top: 20%;
+    top: 16%;
     bottom: 0;
     left: 0;
     right: 0;
@@ -91,10 +91,10 @@ body {
       width: 43%;
       background: 0 0;
       color: #fff;
-      border: 1px solid rgba(255,255,255,.45);
+      border: 1px solid rgba(179, 179, 179, .66);
       border-radius: 20px;
       opacity: .7;
-      transition: opacity 150ms linear;
+      transition: 200ms linear;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -140,5 +140,15 @@ p {
 @media all and (max-width: 500px) {
   #buttons {
     width: 90%;
+  }
+}
+@media all and (max-height: 600px) {
+  #buttons {
+    top: 30%;
+  }
+}
+@media all and (max-height: 300px) {
+  #buttons {
+    top: 45%;
   }
 }
