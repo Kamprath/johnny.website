@@ -2,7 +2,7 @@
 
 var $ = require('jquery'),
     // use low star count for browsers besides Chrome because of performance issues
-    stars = (navigator.userAgent.indexOf("Chrome") >= 0) ? 400 : 266,
+    stars = (navigator.userAgent.indexOf("Chrome") >= 0) ? 666 : 266,
     colors = [
         '#f5d76e',
         '#f7ca18',
