@@ -16,9 +16,16 @@ var $ = require('jquery'),
         star: '#stars span',
         gradient: '.gradient',
         activeGradient: '.gradient.active',
-        title: 'p'
+        title: 'p',
+        buttonLink: 'button[data-href]'
     };
 
+// navigate to value of [data-href] on button click
+$(selectors.buttonLink).on('click', function() {
+    window.location.href = $(this).data('href');
+});
+
+// render stars
 for (var i = 0; i <= stars; i++) {
     var size = Math.random() * 3,
         color = colors[parseInt(Math.random() * 4)];
@@ -33,32 +40,37 @@ for (var i = 0; i <= stars; i++) {
     }));
 }
 
+// animate stars
 setTimeout(function() { 
     $(selectors.star).each(function() {  
         $(this).css('top', Math.random()*100 + '%').css('left', Math.random()*100 + '%'); 
     });
 }, 1);
 
+// reset star position
 setInterval(function() { 
     $(selectors.star).each(function(){     
         $(this).css('top', Math.random()*100 + '%').css('left', Math.random()*100 + '%'); 
     });
 }, 100000); 
 
-setInterval(function() {
-    // get the active gradient
-    var $active = $(selectors.activeGradient),
-        $next = $active.next(selectors.gradient);
+// cycle through gradients
+if (window.location.href.indexOf('?static') < 0) {
+    setInterval(function() {
+        // get the active gradient
+        var $active = $(selectors.activeGradient),
+            $next = $active.next(selectors.gradient);
 
-    // if next div doesn't exist, get the first
-    $next = ($next.length === 0) ? $(selectors.gradient).eq(0) : $next;
+        // if next div doesn't exist, get the first
+        $next = ($next.length === 0) ? $(selectors.gradient).eq(0) : $next;
 
-    $next.addClass('active');
+        $next.addClass('active');
 
-    setTimeout(function() {
-        $active.removeClass('active');
-    }, 1000);
-}, 6000);
+        setTimeout(function() {
+            $active.removeClass('active');
+        }, 3000);
+    }, 6000);
+}
 
 // setInterval(function() {
 //     $('p').css('top', (Math.random() * (50 - 49) + 49) + '%');

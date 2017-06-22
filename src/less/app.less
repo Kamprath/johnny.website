@@ -17,7 +17,7 @@ body {
   // background-image: linear-gradient(to top right,#5706C0, rgba(216, 29, 10, 0.75));
   // background-image: linear-gradient(to top right,rgba(53, 0, 123, 0.87), rgba(39, 241, 176, 0.52));
   // background-image: linear-gradient(to top right,rgba(87, 6, 193, 0.94),rgba(253, 39, 39, 0.81));
-  background-color: rgba(0,0,0,.3);
+  // background-color: rgba(0,0,0,.3);
   // background-image: radial-gradient(farthest-corner at -1125px -82px , rgb(255, 0, 71) 19%, rgba(0, 0, 255, 0.61) 100%);
 }
 
@@ -35,17 +35,25 @@ body {
   &.active {
     opacity: 1;
   }
-  &.one {
+
+  &.purple-1 {
     background-image: linear-gradient(to top right,rgba(87, 6, 193, 0.94),rgba(253, 39, 39, 0.81));
   }
-  &.two {
-    background-image: linear-gradient(to top right,rgba(53, 0, 123, 0.87), rgba(39, 241, 176, 0.52));
-  }
-  &.three {
+  &.purple-2 {
     background-image: linear-gradient(to top right,#5706C0, rgba(216, 29, 10, 0.75));
   }
-  &.four {
+  &.purple-3 {
     background-image: linear-gradient(to top right,#5706C0, rgba(255, 0, 24, 0.69));
+  }
+
+  &.blue-1 {
+    background-image: linear-gradient(to top right,rgba(7, 10, 45, 0.98),rgb(16, 220, 230));
+  }
+  &.blue-2 {
+    background-image: linear-gradient(to top right,rgb(11, 7, 47),rgba(39, 241, 213, 0.53));
+  }
+  &.blue-3 {
+    background-image: linear-gradient(to top right,rgba(20, 20, 27, 0.98),rgba(16, 181, 230, 0.94));
   }
 }
 
@@ -55,8 +63,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, .51);
-  opacity: .6;
+  background: rgba(0, 0, 0, .6);
+  opacity: .5;
   
   span {
     display: inline-block;
@@ -67,9 +75,44 @@ body {
   }
 }
 
+#buttons {
+    position: absolute;
+    width: 390px;
+    top: 20%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 33px;
+    text-align: center;
+
+    button {
+      height: 100%;
+      width: 43%;
+      background: 0 0;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 20px;
+      opacity: .7;
+      transition: opacity 150ms linear;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      &:hover {
+        opacity: .9;
+        cursor: pointer;
+        border-color: rgba(255, 255, 255, .8);
+      }
+      &:first-child {
+        margin-right: 8%;
+      }
+    }
+}
+
 p {
   position: fixed;
-  top: 50.01%;
+  top: 47%;
   left: 0;
   right: 0;
   text-align: center;
@@ -91,5 +134,11 @@ p {
     text-shadow: 0 0 50px black;
     letter-spacing: 3px;
     opacity: .66;
+  }
+}
+
+@media all and (max-width: 500px) {
+  #buttons {
+    width: 90%;
   }
 }
