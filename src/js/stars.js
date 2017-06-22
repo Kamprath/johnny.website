@@ -45,13 +45,10 @@ Array.prototype.random = function() {
  * Randomize styles of all star elements
  */
 function animateStars() {
-    var colorSet = colors.random();
-
     $(selectors.star).each(function(){     
         $(this).css({
             'top': (Math.random() * 100) + '%',
-            'left': (Math.random() * 100) + '%',
-            'color': colorSet.random()
+            'left': (Math.random() * 100) + '%'
         });
     });
 }
