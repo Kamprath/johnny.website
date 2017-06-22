@@ -3,10 +3,10 @@ var $ = require('jquery'),
     gradients = require('./gradients');
 
 // generate stars and start animation
-stars();
+stars(80000);
 
 // start gradient animation
-gradients();
+gradients(6000);
 
 // navigate to value of [data-href] on button click
 $('button[data-href]').on('click', function() {

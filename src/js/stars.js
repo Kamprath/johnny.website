@@ -44,7 +44,7 @@ Array.prototype.random = function() {
 /**
  * Randomize styles of all star elements
  */
-function animateStars() { 
+function animateStars() {
     var colorSet = colors.random();
 
     $(selectors.star).each(function(){     
@@ -59,10 +59,9 @@ function animateStars() {
 /**
  * Generate star elements
  */
-function generateStars() {
+function generateStars(colorSet) {
 	// use lower star count for browsers other than Chrome because of performance issues
-	var count = (navigator.userAgent.indexOf('Chrome') >= 0) ? 666 : 266,
-		colorSet = colors.random();
+	var count = (navigator.userAgent.indexOf('Chrome') >= 0) ? 666 : 266;
 
 	for (var i = 0; i <= count; i++) {
     	var size = Math.random() * 3,
@@ -82,14 +81,14 @@ function generateStars() {
 /**
  * Initialize the module
  */
-function initialize() {
-	generateStars();
+function initialize(interval) {
+	generateStars(colors[1]);
 	
 	// start animation
-	window.setTimeout(animateStars, 50);
+	window.setTimeout(animateStars, 5);
 
 	// animate stars by periodically randomizing their position and color
-	window.setInterval(animateStars, 80000);
+	window.setInterval(animateStars, interval);
 }
 
 module.exports = initialize;
