@@ -42,7 +42,7 @@ gulp.task('lint', function() {
 /**
  * Browserify, uglify, and produce source maps
  */
-gulp.task('build-js', ['lint'], function() {
+gulp.task('js', ['lint'], function() {
     // set up browserify instance on a task basis
     var b = browserify({
         entries: paths.js.entry,
@@ -77,8 +77,8 @@ gulp.task('build-js', ['lint'], function() {
         // send notification
         .pipe(
             notify({
-                title: 'build-js',
-                message: 'JS build finished.'
+                title: 'gulp',
+                message: 'JS task finished.'
             })
         );
 });
@@ -86,7 +86,7 @@ gulp.task('build-js', ['lint'], function() {
 /**
  * Compile Less, produce source maps, and minify CSS
  */
-gulp.task('build-css', function() {
+gulp.task('css', function() {
     return gulp.src(paths.less.src)
         .pipe(
             less()
@@ -108,8 +108,8 @@ gulp.task('build-css', function() {
         )
         .pipe(
             notify({
-                title: 'build-css',
-                message: 'CSS build finished.'
+                title: 'gulp',
+                message: 'CSS task finished.'
             })
         );
 });
@@ -118,11 +118,11 @@ gulp.task('build-css', function() {
  * Run tasks when files change
  */
 gulp.task('watch', function() {
-    gulp.watch(paths.less.src, ['build-css']);
-    gulp.watch(paths.js.src, ['build-js']);
+    gulp.watch(paths.less.src, ['css']);
+    gulp.watch(paths.js.src, ['js']);
 });
 
 /**
  * Run build tasks by default
  */
-gulp.task('default', ['build-js', 'build-css']);
+gulp.task('default', ['js', 'css']);
