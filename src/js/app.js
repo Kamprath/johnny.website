@@ -2,7 +2,7 @@
 
 var $ = require('jquery'),
     // use low star count for browsers besides Chrome because of performance issues
-    stars = (navigator.userAgent.indexOf("Chrome") >= 0) ? 666 : 266,
+    stars = (navigator.userAgent.indexOf("Chrome") >= 0) ? 400 : 266,
     colors = [
         '#f5d76e',
         '#f7ca18',
@@ -13,7 +13,10 @@ var $ = require('jquery'),
     ],
     selectors = {
         stars: '#stars',
-        star: '#stars span'
+        star: '#stars span',
+        gradient: '.gradient',
+        activeGradient: '.gradient.active',
+        title: 'p'
     };
 
 for (var i = 0; i <= stars; i++) {
@@ -30,14 +33,35 @@ for (var i = 0; i <= stars; i++) {
     }));
 }
 
-setTimeout(function(){ 
-    $(selectors.star).each(function(){  
+setTimeout(function() { 
+    $(selectors.star).each(function() {  
         $(this).css('top', Math.random()*100 + '%').css('left', Math.random()*100 + '%'); 
     });
 }, 1);
 
-setInterval(function(){ 
-    $(selectors.star).each(function(){    
+setInterval(function() { 
+    $(selectors.star).each(function(){     
         $(this).css('top', Math.random()*100 + '%').css('left', Math.random()*100 + '%'); 
     });
 }, 100000); 
+
+setInterval(function() {
+    // get the active gradient
+    var $active = $(selectors.activeGradient),
+        $next = $active.next(selectors.gradient);
+
+    // if next div doesn't exist, get the first
+    $next = ($next.length === 0) ? $(selectors.gradient).eq(0) : $next;
+
+    $next.addClass('active');
+
+    setTimeout(function() {
+        $active.removeClass('active');
+    }, 1000);
+}, 6000);
+
+// setInterval(function() {
+//     $('p').css('top', (Math.random() * (50 - 49) + 49) + '%');
+//     $('p').css('left', (Math.random() * (2 + 2) - 2) + '%');
+//     // $('p').css('right', (Math.random() * (2 + 2) - 2) + '%');
+// }, 5500);

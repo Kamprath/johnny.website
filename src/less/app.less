@@ -12,53 +12,84 @@ html, body {
 body {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient( to top right, rgb(87, 6, 193), rgba(255, 0, 0, 0.69) );
+  // background-image: linear-gradient( to top right, rgb(87, 6, 193), rgba(255, 0, 0, 0.69) );
+  // background-image: linear-gradient(to top right,#5706C0, rgba(255, 0, 24, 0.69));
+  // background-image: linear-gradient(to top right,#5706C0, rgba(216, 29, 10, 0.75));
+  // background-image: linear-gradient(to top right,rgba(53, 0, 123, 0.87), rgba(39, 241, 176, 0.52));
+  // background-image: linear-gradient(to top right,rgba(87, 6, 193, 0.94),rgba(253, 39, 39, 0.81));
   background-color: rgba(0,0,0,.3);
+  // background-image: radial-gradient(farthest-corner at -1125px -82px , rgb(255, 0, 71) 19%, rgba(0, 0, 255, 0.61) 100%);
+}
 
-    /*background-image: radial-gradient(farthest-corner at -1125px -82px , rgb(255, 0, 71) 19%, rgba(0, 0, 255, 0.61) 100%);
-    background-color: black;*/
+.gradient {
+  opacity: 0;
+  transition: opacity 6s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &.active {
+    opacity: 1;
   }
-
-  #stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, .4);
-    opacity: .6;
-    
-    span {
-      display: inline-block;
-      width: auto;
-      position: absolute;
-      border-radius: 100%;
-      transition: 100s linear;
-    }
+  &.one {
+    background-image: linear-gradient(to top right,rgba(87, 6, 193, 0.94),rgba(253, 39, 39, 0.81));
   }
-
-  p {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    right: 0;
-    text-align: center;
-    transform: translateY(-50%);
-    font-size: 40px;
-    font-weight: 900;
-    color: white;
-    text-shadow: 0 0 50px rgba(0,0,0,.66);
-    text-transform: uppercase;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    letter-spacing: 5px;
-
-    span {
-      display: block;
-      font-size: 15px;
-      margin-top: 6px;
-      font-weight: 100;
-      text-shadow: 0 0 50px black;
-      letter-spacing: 3px;
-      opacity: .66;
-    }
+  &.two {
+    background-image: linear-gradient(to top right,rgba(53, 0, 123, 0.87), rgba(39, 241, 176, 0.52));
   }
+  &.three {
+    background-image: linear-gradient(to top right,#5706C0, rgba(216, 29, 10, 0.75));
+  }
+  &.four {
+    background-image: linear-gradient(to top right,#5706C0, rgba(255, 0, 24, 0.69));
+  }
+}
+
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .51);
+  opacity: .6;
+  
+  span {
+    display: inline-block;
+    width: auto;
+    position: absolute;
+    border-radius: 100%;
+    transition: 100s linear;
+  }
+}
+
+p {
+  position: fixed;
+  top: 50.01%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 30px rgba(0, 0, 0, .66);
+  text-transform: uppercase;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  letter-spacing: 5px;
+  transition: top 4s ease-in-out, left 4s ease-in-out, right 4s ease-in-out;
+
+  span {
+    display: block;
+    font-size: 15px;
+    margin-top: 6px;
+    font-weight: 100;
+    text-shadow: 0 0 50px black;
+    letter-spacing: 3px;
+    opacity: .66;
+  }
+}
