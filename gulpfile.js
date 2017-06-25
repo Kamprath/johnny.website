@@ -26,6 +26,7 @@ var paths = {
         ]
     },
     less: {
+        entry: './src/less/app.less',
         src: './src/less/**/*.less',
         dest: './public/resources/css/'
     }
@@ -107,7 +108,7 @@ gulp.task('js', ['lint'], function() {
  * Compile Less, produce source maps, and minify CSS
  */
 gulp.task('css', function() {
-    return gulp.src(paths.less.src)
+    return gulp.src(paths.less.entry)
         .pipe(
             less()
         )
