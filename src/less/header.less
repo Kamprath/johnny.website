@@ -1,0 +1,134 @@
+#header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background: #252525 url('/resources/images/header.jpg') no-repeat scroll center center;
+
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .bar {
+    display: block;
+    height: 40px;
+    width: 100%;
+    background-color: @salmon;
+    margin-bottom: 40px;
+  }
+
+  .headshot {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border-radius: 148px;
+    border: 2px solid white;
+    background: url('/resources/images/headshot3.jpg') no-repeat;
+    background-size: cover;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    font-size: 66px;
+    line-height: 66px;
+    margin: 34px 0;
+  }
+
+  p {
+    color: white;
+  }
+
+  .tagline {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: @salmon;
+    font-family: @gotham-book;
+    margin-bottom: 49px;
+
+    .bold {
+      font-family: @gotham;
+      font-weight: bold;
+    }
+    .slashes {
+      letter-spacing: 0;
+    }
+  }
+
+  .summary {
+    max-width: 600px;
+    margin: auto;
+
+    .separator {
+      margin-bottom: 18px;
+    }
+
+    p {
+      margin-bottom: 23px;
+      font-weight: lighter;
+      line-height: 24px;
+      font-size: 16px;
+    }
+
+    a {
+      font-family: @gotham;
+      font-weight: bold;
+    }
+  }
+
+  .buttons {
+    margin: 98px auto auto auto;
+    text-align: center;
+
+    a {
+      width: 184px;
+      font-size: 14px;
+      text-transform: uppercase;
+      border: 2px solid @salmon;
+      text-align: center;
+      line-height: 48px;
+      display: inline-block;
+      border-radius: 5px;
+      letter-spacing: 3px;
+      padding-top: 2px;
+      transition: color 175ms linear, border-color 175ms linear;
+
+      &:nth-child(even) {
+        margin: 0 53px;
+      }
+
+      &:hover {
+        color: white;
+        border-color: white;
+      }
+    }
+  }
+
+  #scroll-link {
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    opacity: .6;
+    width: 92px;
+    transition: opacity 175ms linear;
+
+    svg {
+      margin-top: 13px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

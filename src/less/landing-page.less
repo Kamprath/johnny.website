@@ -1,0 +1,131 @@
+.gradient {
+  opacity: 0;
+  transition: opacity 6s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.purple-1 {
+    background-image: linear-gradient(to top right,rgba(87, 6, 193, 0.94),rgba(253, 39, 39, 0.81));
+  }
+  &.purple-2 {
+    background-image: linear-gradient(to top right,#5706C0, rgba(216, 29, 10, 0.75));
+  }
+  &.purple-3 {
+    background-image: linear-gradient(to top right,#5706C0, rgba(255, 0, 24, 0.69));
+  }
+
+  &.blue-1 {
+    background-image: linear-gradient(to top right,rgba(7, 10, 45, 0.98),rgb(16, 220, 230));
+  }
+  &.blue-2 {
+    background-image: linear-gradient(to top right,rgb(11, 7, 47),rgba(39, 241, 213, 0.53));
+  }
+  &.blue-3 {
+    background-image: linear-gradient(to top right,rgba(20, 20, 27, 0.98),rgba(16, 181, 230, 0.94));
+  }
+}
+
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+  opacity: .5;
+
+  span {
+    display: inline-block;
+    width: auto;
+    position: absolute;
+    border-radius: 100%;
+    transition: top 80s linear, left 80s linear;
+  }
+}
+
+#buttons {
+  position: fixed;
+  width: 390px;
+  top: 16%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 33px;
+  text-align: center;
+
+  button {
+    line-height: 30px;
+    width: 43%;
+    background: 0 0;
+    color: #fff;
+    border: 1px solid rgba(179, 179, 179, .7);
+    border-radius: 20px;
+    opacity: .7;
+    transition: 200ms linear;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .25);
+
+    &:hover {
+      opacity: .9;
+      cursor: pointer;
+      border-color: rgba(255, 255, 255, .8);
+    }
+    &:first-child {
+      margin-right: 8%;
+    }
+  }
+}
+
+p {
+  position: fixed;
+  top: 47%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 30px rgba(0, 0, 0, .66);
+  text-transform: uppercase;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  letter-spacing: 5px;
+
+  span {
+    display: block;
+    font-size: 15px;
+    margin-top: 6px;
+    font-weight: 100;
+    text-shadow: 0 0 50px black;
+    letter-spacing: 3px;
+    opacity: .66;
+  }
+}
+
+@media all and (max-width: 500px) {
+  #buttons {
+    width: 90%;
+  }
+}
+@media all and (max-height: 600px) {
+  #buttons {
+    top: 30%;
+  }
+}
+@media all and (max-height: 300px) {
+  #buttons {
+    top: 45%;
+  }
+}
