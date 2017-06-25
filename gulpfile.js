@@ -9,9 +9,13 @@ var browserify = require('browserify'),
     stylish = require('jshint-stylish'),
     less = require('gulp-less');
     cleanCss = require('gulp-clean-css'),
-    notify = require('gulp-notify'),
-    autoprefixer = require('gulp-autoprefixer');
+    gulpNotify = require('gulp-notify'),
+    autoprefixer = require('gulp-autoprefixer'),
+    through = require('through2');
 
+/**
+ * Globs and directory paths
+ */
 var paths = {
     js: {
         entry: './src/js/app.js', 
@@ -26,6 +30,25 @@ var paths = {
         dest: './public/resources/css/'
     }
 };
+
+/**
+ * Display a notification indicating task completion
+ *
+ * Does not run on Linux due to the likelihood of being a non-GUI system which would cause errors.
+ *
+ * @param {string} taskName
+ */
+function notify(taskName) {
+    if (process.platform === 'linux') {
+        return through.obj();
+    }
+
+    return gulpNotify({
+        title: 'gulp',
+        message: taskName + ' task finished.',
+        onLast: true
+    });
+}
 
 /**
  * Lint unminified JS files using jshint
@@ -76,10 +99,7 @@ gulp.task('js', ['lint'], function() {
 
         // send notification
         .pipe(
-            notify({
-                title: 'gulp',
-                message: 'JS task finished.'
-            })
+            notify('JS')
         );
 });
 
@@ -107,10 +127,7 @@ gulp.task('css', function() {
             gulp.dest(paths.less.dest)
         )
         .pipe(
-            notify({
-                title: 'gulp',
-                message: 'CSS task finished.'
-            })
+            notify('CSS')
         );
 });
 
