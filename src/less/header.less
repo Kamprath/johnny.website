@@ -8,6 +8,10 @@
   .container {
     max-width: 1000px;
     margin: auto;
+
+    * {
+      transition: margin 150ms ease-in;
+    }
   }
 
   .bar {
@@ -20,8 +24,8 @@
 
   .headshot {
     display: block;
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     margin: auto;
     border-radius: 148px;
     border: 2px solid white;
@@ -98,7 +102,8 @@
       transition: color 175ms linear, border-color 175ms linear;
 
       &:nth-child(even) {
-        margin: 0 53px;
+        margin-right: 53px;
+        margin-left: 53px;
       }
 
       &:hover {
@@ -129,6 +134,159 @@
 
     &:hover {
       opacity: 1;
+    }
+  }
+
+  @media all and (max-height: @height-tall) {
+    .buttons {
+      margin-top: 55px;
+    }
+    .tagline {
+      margin-bottom: 15px;
+    }
+    h1 {
+      margin: 10px 0;
+      font-size: 55px;
+    }
+    .bar {
+      margin-bottom: 25px;
+    }
+    .headshot {
+      width: 110px;
+      height: 110px;
+    }
+  }
+  @media all and (max-height: @height-medium) {
+    #scroll-link {
+      display: none;
+    }
+    .headshot {
+      width: 85px;
+      height: 85px;
+    }
+    .buttons a {
+      line-height: 38px;
+      font-size: 12px;
+    }
+  }
+  @media all and (max-height: @height-short) {
+    h1 {
+      float: right;
+      margin: 10px 55px 0 0;
+      font-size: 62px;
+    }
+    .bar {
+      margin-bottom: 45px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .summary {
+      .separator {
+        height: 6px;
+        margin-bottom: 7px;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+    }
+    .tagline {
+      clear: both;
+    }
+    .container {
+      max-width: 750px;
+    }
+    .headshot {
+      //display: none;
+      margin-left: 65px;
+      float: left;
+    }
+  }
+  @media all and (max-width: @width-medium) {
+    .buttons a {
+      width: 26%;
+
+      &:nth-child(even) {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+    }
+  }
+  @media all and (max-width: @width-small) {
+    .container {
+      width: 94%;
+    }
+    .bar {
+      margin-bottom: 30px;
+    }
+    .headshot {
+      width: 85px;
+      height: 85px;
+    }
+    h1 {
+      margin: 20px 0;
+      font-size: 62px;
+    }
+    .tagline {
+      margin-bottom: 20px;
+    }
+    .buttons {
+      margin-top: 50px;
+
+      a {
+        width: 100%;
+        margin-bottom: 5px;
+
+        &:nth-child(even) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  @media all and (max-width: @width-small) and (max-height: @height-medium) {
+    .bar {
+      margin-bottom: 15px;
+    }
+    .tagline {
+      margin-bottom: 0;
+    }
+    .buttons {
+      display: none;
+    }
+    #scroll-link {
+      display: block;
+    }
+  }
+  @media all and (max-width: @width-small) and (max-height: @height-tall) {
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      white-space: nowrap;
+    }
+  }
+  @media all and (max-width: @width-small) and (max-height: @height-short) {
+    h1 {
+      float: none;
+    }
+    #scroll-link {
+      display: none;
+    }
+  }
+  @media all and (max-width: @width-medium) and (max-height: @height-short) {
+    .bar {
+      margin-bottom: 0;
+      height: 25px;
+    }
+    h1 {
+      float: none;
+      margin: 10px 0;
+    }
+    .headshot {
+      display: none;
+    }
+    .buttons {
+      display: none;
     }
   }
 }
